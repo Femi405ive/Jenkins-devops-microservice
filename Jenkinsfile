@@ -18,4 +18,17 @@ pipeline {
 			}
 		}
 	}
+	post {
+		failure {
+			echo "i failed i am sorry about that. try again"
+		}
+	
+	always {
+			echo "yay i run always" 
+		}
+	
+		success {
+			echo "i told you i was going to make it"
+		}
+	}
 }
