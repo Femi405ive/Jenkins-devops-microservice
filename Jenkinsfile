@@ -6,13 +6,13 @@ pipeline {
 			echo"build"
 			}
 		}
-		stage("test") 
+		stage('test') 
 			steps {
 			echo "test"
 			}
 		}
 
-		stage("integration test") {
+		stage('integration test') {
 			steps {
 			echo "integration test"
 			}
