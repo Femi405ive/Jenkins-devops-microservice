@@ -4,7 +4,8 @@ pipeline {
 	stages {
 		stage('build') {
 			steps {
-			echo"build"
+			// sh 'node --version'
+			echo "build"
 			echo "path - $path"
 			echo "BUILD_NUMBER - $env.BUILD_NUMBER"
 			ech0 "BUILD_ID - $env.BUILD_ID"
@@ -15,8 +16,6 @@ pipeline {
 		stage('test') {
 			steps {
 			echo "test"
-			// sh 'node --version'
-			
 			}
 		}
 
@@ -31,7 +30,7 @@ pipeline {
 			echo "i failed i am sorry about that. try again"
 		}
 	
-	always {
+		always {
 			echo "yay i run always" 
 		}
 	
