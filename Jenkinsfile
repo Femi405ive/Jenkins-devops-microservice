@@ -5,17 +5,18 @@ pipeline {
 		stage('build') {
 			steps {
 			echo"build"
+			echo "path - $path"
+			echo "BUILD_NUMBER - $env.BUILD_NUMBER"
+			ech0 "BUILD_ID - $env.BUILD_ID"
+			ech0 "JOD_NAME - $env.JOD_NAME"
+			ech0 "BUILD_TAG - $env.BUILD_TAG"
 			}
 		}
 		stage('test') {
 			steps {
 			echo "test"
 			// sh 'node --version'
-			echo "path - $path"
-			echo "BUILD_NUMBER - $env.BUILD_NUMBER"
-			ech0 "BUILD_ID - $env.BUILD_ID"
-			ech0 "JOD_NAME - $env.JOD_NAME"
-			ech0 "BUILD_TAG - $env.BUILD_TAG"
+			
 			}
 		}
 
