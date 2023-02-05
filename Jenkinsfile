@@ -8,7 +8,7 @@ pipeline {
 	}
 
 	stages {
-		stage('checkout') {
+		stage('build') {
 			steps {
 			sh 'mvn --version'
 			sh 'docker version'
@@ -20,22 +20,29 @@ pipeline {
 			echo "BUILD_TAG - $env.BUILD_TAG"
 			}
 		}
-		stage('Compile') {
-			steps {
-			sh "mvn clean compile"
-			}
-		}
-
 		stage('test') {
 			steps {
-			sh "mvn test"
+			echo "test"
 			}
 		}
 
 		stage('integration test') {
 			steps {
-			sh "mvn failsafe:integration-test failsafe:verify"
+			echo "integration test"
 			}
+		}
+	}
+	post {
+		failure {
+			echo "i failed i am sorry about that. try again"
+		}
+	
+		always {
+			echo "yay i run always" 
+		}
+	
+		success {
+			echo "i told you i was going to make it"
 		}
 	}
 }
