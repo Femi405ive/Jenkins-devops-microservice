@@ -22,33 +22,20 @@ pipeline {
 		}
 		stage('Compile') {
 			steps {
-			echo "mvn clean compile"
+			sh "mvn clean compile"
 			}
 
 
 		stage('test') {
 			steps {
-			echo "mvn test"
+			sh "mvn test"
 			}
 		}
 
 		stage('integration test') {
 			steps {
-			echo "mvn failsafe:integration-test failsafe:verify"
+			sh "mvn failsafe:integration-test failsafe:verify"
 			}
-		}
-	}
-	post {
-		failure {
-			echo "i failed i am sorry about that. try again"
-		}
-	
-		always {
-			echo "yay i run always" 
-		}
-	
-		success {
-			echo "i told you i was going to make it"
 		}
 	}
 }
